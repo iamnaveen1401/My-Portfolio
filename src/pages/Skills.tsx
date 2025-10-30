@@ -1,41 +1,25 @@
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { Float, Text3D, Center } from '@react-three/drei';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import { Card } from '@/components/ui/card';
+import { Code, Database, Wrench } from 'lucide-react';
 
 const skills = [
   {
     category: 'Frontend',
+    icon: Code,
     items: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js'],
   },
   {
     category: 'Backend',
+    icon: Database,
     items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL'],
   },
   {
     category: 'Tools',
+    icon: Wrench,
     items: ['Git', 'Docker', 'AWS', 'Figma', 'VS Code'],
   },
 ];
-
-function Skill3D({ text }: { text: string }) {
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Center>
-        <Text3D
-          font="/fonts/helvetiker_regular.typeface.json"
-          size={0.5}
-          height={0.2}
-          curveSegments={12}
-        >
-          {text}
-          <meshStandardMaterial color="#00d9ff" />
-        </Text3D>
-      </Center>
-    </Float>
-  );
-}
 
 export default function Skills() {
   return (
@@ -51,58 +35,71 @@ export default function Skills() {
           Skills & Technologies
         </motion.h1>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {skills.map((skillGroup, index) => (
-            <motion.div
-              key={skillGroup.category}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <Card className="glass p-6 h-full">
-                <h3 className="text-2xl font-bold mb-6 text-primary glow-text">
-                  {skillGroup.category}
-                </h3>
-                <div className="space-y-4">
-                  {skillGroup.items.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill}
-                      className="group"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.2 + skillIndex * 0.1 }}
-                      whileHover={{ x: 10 }}
-                    >
-                      <div className="flex items-center gap-3">
+        <div className="grid md:grid-cols-3 gap-8">
+          {skills.map((skillGroup, index) => {
+            const Icon = skillGroup.icon;
+            return (
+              <motion.div
+                key={skillGroup.category}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                whileHover={{ scale: 1.02, rotateY: 2 }}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <Card className="glass p-6 h-full relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <motion.div
+                        className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <Icon className="w-6 h-6 text-primary" />
+                      </motion.div>
+                      <h3 className="text-2xl font-bold text-primary glow-text">
+                        {skillGroup.category}
+                      </h3>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {skillGroup.items.map((skill, skillIndex) => (
                         <motion.div
-                          className="w-2 h-2 rounded-full bg-primary"
-                          animate={{ scale: [1, 1.5, 1] }}
-                          transition={{ repeat: Infinity, duration: 2, delay: skillIndex * 0.2 }}
-                        />
-                        <span className="text-lg group-hover:text-primary transition-colors">
-                          {skill}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                          key={skill}
+                          className="group/item"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.2 + skillIndex * 0.1 }}
+                          whileHover={{ x: 10 }}
+                        >
+                          <div className="flex items-center gap-3 p-3 rounded-lg glass group-hover/item:bg-primary/10 transition-colors">
+                            <motion.div
+                              className="w-2 h-2 rounded-full bg-primary"
+                              animate={{ 
+                                scale: [1, 1.5, 1],
+                                boxShadow: [
+                                  '0 0 0 0 hsl(var(--primary) / 0.7)',
+                                  '0 0 0 10px hsl(var(--primary) / 0)',
+                                  '0 0 0 0 hsl(var(--primary) / 0)',
+                                ]
+                              }}
+                              transition={{ repeat: Infinity, duration: 2, delay: skillIndex * 0.2 }}
+                            />
+                            <span className="text-lg group-hover/item:text-primary transition-colors">
+                              {skill}
+                            </span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
-
-        <motion.div
-          className="h-[400px] rounded-2xl overflow-hidden glass"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          <Canvas camera={{ position: [0, 0, 5] }}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} />
-            <Skill3D text="React" />
-          </Canvas>
-        </motion.div>
       </div>
     </main>
   );
