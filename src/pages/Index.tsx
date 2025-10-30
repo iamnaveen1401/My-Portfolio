@@ -1,4 +1,4 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+// Portfolio Home Page - The main entry point with 3D hero and particle effects
 
 const Index = () => {
   return (
