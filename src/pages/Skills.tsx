@@ -1,25 +1,79 @@
 import { motion } from 'framer-motion';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import { Card } from '@/components/ui/card';
-import { Code, Database, Wrench } from 'lucide-react';
+import { BarChart3, Code, Database, UserCheck, Wrench } from 'lucide-react';
 
 const skills = [
   {
-    category: 'Frontend',
+    category: 'Programming & Analysis',
     icon: Code,
-    items: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js'],
+    items: ['Python', 'SQL', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
   },
   {
-    category: 'Backend',
+    category: 'Machine Learning',
     icon: Database,
-    items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL'],
+    items: ['Scikit-Learn', 'Regression', 'Classification', 'Clustering', 'Model Evaluation', 'Feature Engineering'],
   },
   {
-    category: 'Tools',
+    category: 'Data Visualization',
+    icon: BarChart3,
+    items: ['Power BI', 'Tableau', 'Excel Analytics', 'Data Cleaning', 'Dashboard Design'],
+  },
+  {
+    category: 'Tools & Environment',
     icon: Wrench,
-    items: ['Git', 'Docker', 'AWS', 'Figma', 'VS Code'],
+    items: ['Jupyter Notebook', 'VS Code', 'Git', 'Google Colab','Anaconda','MySQL / PostgreSQL','Excel'],
+  },
+  {
+    category: 'Soft Skills & Strengths',
+    icon: UserCheck,
+    items: [
+      'Problem Solving',
+      'Analytical Thinking',
+      'Critical Thinking',
+      'Team Collaboration',
+      'Communication Skills',
+      'Continuous Learning',
+      'Time Management',
+    ],
   },
 ];
+
+const skillLevels: Record<string, 'Beginner' | 'Intermediate' | 'Advanced'> = {
+  Python: 'Advanced',
+  SQL: 'Advanced',
+  Pandas: 'Advanced',
+  NumPy: 'Advanced',
+  Matplotlib: 'Intermediate',
+  Seaborn: 'Intermediate',
+  'Scikit-Learn': 'Advanced',
+  Regression: 'Advanced',
+  Classification: 'Advanced',
+  Clustering: 'Intermediate',
+  'Model Evaluation': 'Advanced',
+  'Feature Engineering': 'Advanced',
+  'Power BI': 'Advanced',
+  Tableau: 'Intermediate',
+  'Excel Analytics': 'Advanced',
+  'Data Cleaning': 'Advanced',
+  'Dashboard Design': 'Intermediate',
+  'Jupyter Notebook': 'Advanced',
+  'VS Code': 'Advanced',
+  Git: 'Intermediate',
+  'Google Colab': 'Advanced',
+  Anaconda: 'Advanced',
+  'MySQL / PostgreSQL': 'Intermediate',
+  Excel: 'Advanced',
+  'Problem Solving': 'Advanced',
+  'Analytical Thinking': 'Advanced',
+  'Critical Thinking': 'Advanced',
+  'Team Collaboration': 'Intermediate',
+  'Communication Skills': 'Intermediate',
+  'Continuous Learning': 'Advanced',
+  'Time Management': 'Intermediate',
+};
+
+
 
 export default function Skills() {
   return (
@@ -35,7 +89,7 @@ export default function Skills() {
           Skills & Technologies
         </motion.h1>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {skills.map((skillGroup, index) => {
             const Icon = skillGroup.icon;
             return (
@@ -74,22 +128,29 @@ export default function Skills() {
                           transition={{ delay: index * 0.2 + skillIndex * 0.1 }}
                           whileHover={{ x: 10 }}
                         >
-                          <div className="flex items-center gap-3 p-3 rounded-lg glass group-hover/item:bg-primary/10 transition-colors">
-                            <motion.div
-                              className="w-2 h-2 rounded-full bg-primary"
-                              animate={{ 
-                                scale: [1, 1.5, 1],
-                                boxShadow: [
-                                  '0 0 0 0 hsl(var(--primary) / 0.7)',
-                                  '0 0 0 10px hsl(var(--primary) / 0)',
-                                  '0 0 0 0 hsl(var(--primary) / 0)',
-                                ]
-                              }}
-                              transition={{ repeat: Infinity, duration: 2, delay: skillIndex * 0.2 }}
-                            />
-                            <span className="text-lg group-hover/item:text-primary transition-colors">
-                              {skill}
-                            </span>
+                          <div className="flex items-center justify-between gap-3 p-3 rounded-lg glass group-hover/item:bg-primary/10 transition-colors">
+                            <div className="flex items-center gap-3">
+                              <motion.div
+                                className="w-2 h-2 rounded-full bg-primary"
+                                animate={{ 
+                                  scale: [1, 1.5, 1],
+                                  boxShadow: [
+                                    '0 0 0 0 hsl(var(--primary) / 0.7)',
+                                    '0 0 0 10px hsl(var(--primary) / 0)',
+                                    '0 0 0 0 hsl(var(--primary) / 0)',
+                                  ]
+                                }}
+                                transition={{ repeat: Infinity, duration: 2, delay: skillIndex * 0.2 }}
+                              />
+                              <span className="text-lg group-hover/item:text-primary transition-colors">
+                                {skill}
+                              </span>
+                            </div>
+                            {skillGroup.category !== 'Soft Skills & Strengths' && (
+                              <span className="px-2.5 py-1 text-xs rounded-full glass text-muted-foreground group-hover/item:text-primary">
+                                {skillLevels[skill] ?? 'Intermediate'}
+                              </span>
+                            )}
                           </div>
                         </motion.div>
                       ))}

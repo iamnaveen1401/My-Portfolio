@@ -1,22 +1,22 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Twitter, Instagram, Youtube, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Hero3D } from '@/components/Hero3D';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import heroBg from '@/assets/hero-bg.jpg';
+import KaggleIcon from "../assets/kaggle.svg";
+ 
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
+  { icon: Github, href: 'https://github.com/iamnaveen1401', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/naveen1401/', label: 'LinkedIn' },
+  { icon: KaggleIcon, href: 'https://www.kaggle.com/iamnaveen1401', label: 'Kaggle' },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative">
       <ParticleBackground />
       
       <div
@@ -45,10 +45,12 @@ export default function Home() {
                 Hello, I'm
               </h2>
               <h1 className="text-5xl md:text-7xl font-bold mb-4 glow-text">
-                Your Name
+                Naveen M
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground">
-                Full Stack Developer & Creative Technologist
+              <p className="text-xl md:text-2xl text-muted-foreground glow-text">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-semibold">
+                  Data Science & Machine Learning Specialist
+                </span>
               </p>
             </motion.div>
 
@@ -58,8 +60,8 @@ export default function Home() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground leading-relaxed"
             >
-              Crafting immersive digital experiences with cutting-edge technologies.
-              Passionate about 3D graphics, animations, and building beautiful web applications.
+              Crafting immersive digital experiences powered by data and intelligence.
+              Passionate about data science, machine learning, and transforming complex datasets into meaningful insights and smart solutions.
             </motion.p>
 
             <motion.div
@@ -100,7 +102,11 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
                 >
-                  <social.icon className="w-5 h-5" />
+                  {typeof social.icon === 'string' ? (
+                    <img src={social.icon} alt={social.label} className="w-5 h-5" />
+                  ) : (
+                    <social.icon className="w-5 h-5" />
+                  )}
                 </motion.a>
               ))}
             </motion.div>

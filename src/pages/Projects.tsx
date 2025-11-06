@@ -32,6 +32,30 @@ const projects = [
     github: 'https://github.com',
     live: 'https://example.com',
   },
+  {
+    title: 'Customer Churn Prediction',
+    description: 'End-to-end ML pipeline to predict churn with model monitoring and dashboards.',
+    image: project1,
+    tags: ['Python', 'scikit-learn', 'FastAPI'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+  },
+  {
+    title: 'NLP Insights Explorer',
+    description: 'Topic modeling and semantic search over documents with interactive visualizations.',
+    image: project2,
+    tags: ['NLP', 'PyTorch', 'React'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+  },
+  {
+    title: 'Sales Forecasting Suite',
+    description: 'Time-series forecasting with feature store and experiment tracking.',
+    image: project3,
+    tags: ['Time Series', 'XGBoost', 'MLflow'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+  },
 ];
 
 export default function Projects() {

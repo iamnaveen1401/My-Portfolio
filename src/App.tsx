@@ -12,7 +12,6 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import Articles from "./pages/Articles";
 import CodingProfiles from "./pages/CodingProfiles";
 import NotFound from "./pages/NotFound";
 
@@ -58,11 +57,6 @@ function AnimatedRoutes() {
         <Route path="/contact" element={
           <motion.div {...pageTransition} transition={{ duration: 0.4 }}>
             <Contact />
-          </motion.div>
-        } />
-        <Route path="/articles" element={
-          <motion.div {...pageTransition} transition={{ duration: 0.4 }}>
-            <Articles />
           </motion.div>
         } />
         <Route path="/coding-profiles" element={

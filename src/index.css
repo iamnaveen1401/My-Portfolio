@@ -59,14 +59,87 @@ All colors MUST be HSL.
   }
 }
 
+[data-theme="light"] {
+  --background: 210 100% 98%;
+  --foreground: 229 84% 5%;
+  --card: 0 0% 100%;
+  --card-foreground: 229 84% 5%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 229 84% 5%;
+  --primary: 226 70% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 189 100% 65%;
+  --secondary-foreground: 229 84% 5%;
+  --muted: 210 40% 94%;
+  --muted-foreground: 229 50% 40%;
+  --accent: 271 100% 56%;
+  --accent-foreground: 229 84% 5%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 40% 85%;
+  --input: 210 40% 96%;
+  --ring: 226 70% 52%;
+  --neon-blue: 214 100% 47%;
+  --neon-purple: 271 100% 56%;
+  --neon-cyan: 190 100% 46%;
+  --gradient-primary: linear-gradient(135deg, hsl(214 100% 47%), hsl(271 100% 56%));
+  --gradient-glow: radial-gradient(ellipse at center, hsl(214 100% 47% / 0.25), transparent);
+  --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(210 40% 94% / 0.6));
+  --glow-blue: 0 0 30px hsl(214 100% 47% / 0.2);
+  --glow-purple: 0 0 30px hsl(271 100% 56% / 0.25);
+  --shadow-elevated: 0 20px 60px -15px hsl(189 100% 65% / 0.10);
+  --radius: 0.75rem;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: light) {
+  body:not([data-theme="dark"]):not([data-theme="light"]) {
+    --background: 210 100% 98%;
+    --foreground: 229 84% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 229 84% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 229 84% 5%;
+    --primary: 226 70% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 189 100% 65%;
+    --secondary-foreground: 229 84% 5%;
+    --muted: 210 40% 94%;
+    --muted-foreground: 229 50% 40%;
+    --accent: 271 100% 56%;
+    --accent-foreground: 229 84% 5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 40% 85%;
+    --input: 210 40% 96%;
+    --ring: 226 70% 52%;
+    --neon-blue: 214 100% 47%;
+    --neon-purple: 271 100% 56%;
+    --neon-cyan: 190 100% 46%;
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 47%), hsl(271 100% 56%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(214 100% 47% / 0.2), transparent);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(210 40% 94% / 0.6));
+    --glow-blue: 0 0 30px hsl(214 100% 47% / 0.2);
+    --glow-purple: 0 0 30px hsl(271 100% 56% / 0.2);
+    --shadow-elevated: 0 20px 60px -15px hsl(226 70% 52% / 0.10);
+    --radius: 0.75rem;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground;
     cursor: none;
+  }
+
+  /* Prevent horizontal scroll on desktop */
+  html, body {
+    overflow-x: hidden;
   }
 
   /* Custom cursor styles */

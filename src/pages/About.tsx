@@ -33,11 +33,9 @@ export default function About() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              I'm a passionate developer with expertise in building modern web applications
-              using cutting-edge technologies. My journey in tech started with a curiosity
-              for how things work under the hood, which evolved into a career creating
-              immersive digital experiences.
+              Hi, I'm <span className="font-semibold text-blue-400">Naveen M</span>, a passionate <span className="text-purple-400"> Data Science and Machine Learning specialist</span> with a strong focus on <span className="text-blue-300">data analysis and visualization</span>. My journey began with a deep curiosity about how data influences decision-making, which soon grew into a passion for <span className="text-yellow-300"> extracting insights and solving real-world problems through data</span>.
             </motion.p>
+
 
             <motion.p
               className="text-lg leading-relaxed"
@@ -45,11 +43,30 @@ export default function About() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              With a strong foundation in React, Three.js, and modern web technologies,
-              I specialize in creating visually stunning and performant applications.
-              I believe in writing clean, maintainable code and staying up-to-date with
-              the latest industry trends.
+              I’m a <span className="text-green-400 font-medium">B.Tech Computer Technology (2025)</span> graduate from 
+              <span className="text-blue-300 font-medium"> Bannari Amman Institute of Technology</span>, and I’ve also 
+              completed a <span className="text-purple-300 font-medium">Data Science and Machine Learning program</span> 
+              from <span className="text-yellow-300 font-medium">Entri Elevate</span>, in collaboration with 
+              <span className="text-red-300 font-medium"> Illinois Tech, USA</span>.
+        </motion.p>
+
+
+            <motion.p
+              className="text-lg leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              With hands-on experience in 
+              <span className="text-pink-300"> Machine Learning, Python, SQL, Power BI and Excel</span>, 
+              I specialize in developing 
+              <span className="text-blue-300"> predictive models, interactive dashboards,</span> 
+              and <span className="text-purple-300">analytical reports</span> that empower 
+              businesses to make <span className="text-yellow-300">data-driven decisions</span>. 
+              I enjoy every step of the process — from exploring and cleaning datasets to transforming 
+              and visualizing insights in meaningful ways.
             </motion.p>
+
 
             <motion.p
               className="text-lg leading-relaxed"
@@ -57,10 +74,15 @@ export default function About() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              When I'm not coding, you can find me exploring new technologies, contributing
-              to open-source projects, or sharing my knowledge through technical articles
-              and tutorials.
+              Beyond data, I’m constantly exploring 
+              <span className="text-blue-400"> new tools and technologies</span>, 
+              improving my <span className="text-purple-300">technical skills</span>, 
+              and sharing my knowledge through 
+              <span className="text-green-400"> projects and tutorials</span>.  
+              Let’s turn <span className="text-yellow-300">data into decisions</span> and 
+              <span className="text-pink-300"> insights into impact !</span>
             </motion.p>
+
           </motion.div>
 
           <motion.div
@@ -70,9 +92,9 @@ export default function About() {
             transition={{ delay: 0.6 }}
           >
             {[
-              { number: '50+', label: 'Projects Completed' },
-              { number: '3+', label: 'Years Experience' },
-              { number: '100K+', label: 'Lines of Code' },
+              { number: '10+', label: 'Projects Completed' },
+              { number: '27+', label: 'Datasets Analyzed' },
+              { number: '23K+', label: 'Lines of Code' },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
