@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import { Card } from '@/components/ui/card';
@@ -6,8 +7,11 @@ import { Button } from '@/components/ui/button';
 import project1 from '@/assets/project1.jpg';
 import project2 from '@/assets/project2.jpg';
 import project3 from '@/assets/project3.jpg';
+import project4 from '@/assets/project4.jpg';
+import project5 from '@/assets/project5.jpg';
+import project6 from '@/assets/project6.jpg';
 
-const projects = [
+const projects: { title: string; description: string; image: string; tags: string[]; github: string; dataset?: string; Live?: string }[] = [
   {
     title: 'Prediction of Smartphone Addiction using ML',
     description: 'A machine learning model that predicts smartphone addiction levels based on user behavior data, screen time, and activity patterns.',
@@ -31,32 +35,51 @@ const projects = [
 
   },
   {
-    title: 'Customer Churn Prediction',
-    description: 'End-to-end ML pipeline to predict churn with model monitoring and dashboards.',
+    title: 'California House Price Prediction Using ML Regression',
+    description: 'A regression-based project that predicts California house prices using key factors like income, location, and property features.',
     image: project1,
-    tags: ['Python', 'scikit-learn', 'FastAPI'],
-    github: 'https://github.com',
+    tags: ["Python", "Scikit-learn", "Regression", "Data Visualization"],
+    github: 'https://github.com/iamnaveen1401/California-House-Price-Prediction-Using-ML-Regression-Model',
+    Live : 'https://california-house-price-prediction-naveen.onrender.com/',
 
   },
   {
-    title: 'NLP Insights Explorer',
-    description: 'Topic modeling and semantic search over documents with interactive visualizations.',
+    title: 'Country Development Classification Using Clustering',
+    description: 'A project that groups countries by socio-economic indicators to classify their development levels using hierarchical clustering.',
     image: project2,
-    tags: ['NLP', 'PyTorch', 'React'],
-    github: 'https://github.com',
+    tags: ["Python", "Scikit-learn", "Clustering", "Matplotlib"],
+    github: 'https://github.com/iamnaveen1401/Country-Development-Classification-Using-Hierarchical-Clustering',
 
   },
   {
-    title: 'Sales Forecasting Suite',
-    description: 'Time-series forecasting with feature store and experiment tracking.',
+    title: 'Customer Churn Analysis Using ML Classification Models',
+    description: 'machine learning project that predicts customer churn using classification models based on behavior and service data.',
     image: project3,
-    tags: ['Time Series', 'XGBoost', 'MLflow'],
-    github: 'https://github.com',
+    tags: ["Python", "Scikit-learn", "Classification", "Data Analysis"],
+    github: 'https://github.com/iamnaveen1401/Customer-Churn-Analysis-Using-ML-Classification-Models',
+    dataset : 'https://www.kaggle.com/datasets/blastchar/telco-customer-churn',
 
   },
 ];
 
 export default function Projects() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setLightboxSrc(null);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  function openLightbox(src: string) {
+    setLightboxSrc(src);
+  }
+
+  function closeLightbox() {
+    setLightboxSrc(null);
+  }
   return (
     <main className="min-h-screen pt-32 pb-20 relative">
       <ParticleBackground />
@@ -67,7 +90,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Projects
+          My Projects
         </motion.h1>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -80,20 +103,40 @@ export default function Projects() {
               whileHover={{ y: -10 }}
             >
               <Card className="glass overflow-hidden group h-full flex flex-col">
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden">
                   <motion.img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
+                    className="w-full h-auto object-contain cursor-pointer block"
+                    whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.4 }}
-                  />
+                    onClick={() => openLightbox(project.image)}
+                  />                
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4 gap-2">
+                    {/* GitHub Button */}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title} on GitHub`}
+                    >
+                      <Button size="sm" variant="outline" className="glass">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
 
-                    <Button size="sm" variant="outline" className="glass">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
+                    {/* Dataset Button */}
+                    <a
+                      href={project.dataset}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title} Dataset`}
+                    >
+                      <Button size="sm" variant="outline" className="glass">
+                        📊 Dataset
+                      </Button>
+                    </a>
                   </div>
                 </div>
 
@@ -120,6 +163,23 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+        {lightboxSrc && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Project image preview"
+            className="fixed inset-0 z-50 flex items-center justify-center p-0"
+            onClick={closeLightbox}
+          >
+            <div className="absolute inset-0 bg-black/80" />
+            <img
+              src={lightboxSrc}
+              alt="Project full preview"
+              className="relative w-screen h-auto max-h-screen object-contain shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </div>
     </main>
   );
