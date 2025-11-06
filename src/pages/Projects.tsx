@@ -9,28 +9,26 @@ import project3 from '@/assets/project3.jpg';
 
 const projects = [
   {
-    title: 'Analytics Dashboard',
-    description: 'A modern analytics platform with real-time data visualization and interactive charts.',
+    title: 'Prediction of Smartphone Addiction using ML',
+    description: 'A machine learning model that predicts smartphone addiction levels based on user behavior data, screen time, and activity patterns.',
     image: project1,
-    tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    tags: ['React', "Python", "Scikit-learn", "Pandas", "Matplotlib", 'CSS'],
+    github: 'https://github.com/iamnaveen1401/Prediction-of-Smartphone-Addiction-using-Machine-Learning',
   },
   {
-    title: 'AI Mobile App',
-    description: 'Machine learning powered mobile application with neural network visualizations.',
+    title: 'E-Commerce Customer Churn Analysis using MySQL',
+    description: 'A MySQL-based project analyzing customer churn patterns to improve retention and business performance.',
     image: project2,
-    tags: ['React Native', 'TensorFlow', 'Python'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    tags: ["MySQL", "Data Cleaning", "Exploratory Analysis", "Customer Retention"],
+    github: 'https://github.com/iamnaveen1401/E-Commerce-Customer-Churn-Analysis-Using-MySql',
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with secure payments and inventory management.',
+    title: 'Amazon Review Prediction using Naive Bayes',
+    description: 'A machine learning project that predicts the sentiment of Amazon product reviews using Multinomial and Bernoulli Naive Bayes models.',
     image: project3,
-    tags: ['Next.js', 'Stripe', 'PostgreSQL'],
-    github: 'https://github.com',
-    live: 'https://example.com',
+    tags: ["Python", "Scikit-learn", "Seaborn","Pandas", "Naive Bayes"],
+    github: 'https://github.com/iamnaveen1401/Amazon-Review-Prediction-Using-Multinomial-Bernoulli-Naive-Bayes',
+
   },
   {
     title: 'Customer Churn Prediction',
@@ -38,7 +36,7 @@ const projects = [
     image: project1,
     tags: ['Python', 'scikit-learn', 'FastAPI'],
     github: 'https://github.com',
-    live: 'https://example.com',
+
   },
   {
     title: 'NLP Insights Explorer',
@@ -46,7 +44,7 @@ const projects = [
     image: project2,
     tags: ['NLP', 'PyTorch', 'React'],
     github: 'https://github.com',
-    live: 'https://example.com',
+
   },
   {
     title: 'Sales Forecasting Suite',
@@ -54,7 +52,7 @@ const projects = [
     image: project3,
     tags: ['Time Series', 'XGBoost', 'MLflow'],
     github: 'https://github.com',
-    live: 'https://example.com',
+
   },
 ];
 
@@ -69,7 +67,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Featured Projects
+          Projects
         </motion.h1>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -91,10 +89,7 @@ export default function Projects() {
                     transition={{ duration: 0.4 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4 gap-2">
-                    <Button size="sm" className="animate-fade-in">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live
-                    </Button>
+
                     <Button size="sm" variant="outline" className="glass">
                       <Github className="w-4 h-4 mr-2" />
                       Code
