@@ -9,7 +9,6 @@ const navItems = [
   { path: '/about', label: 'About', icon: User },
   { path: '/skills', label: 'Skills', icon: Code },
   { path: '/projects', label: 'Projects', icon: Briefcase },
-  { path: '/coding-profiles', label: 'Profiles', icon: Github },
   { path: '/resume', label: 'Resume', icon: FileText },
   { path: '/contact', label: 'Contact', icon: Mail },
 ];

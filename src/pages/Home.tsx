@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Twitter, Instagram, Youtube, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Hero3D } from '@/components/Hero3D';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import heroBg from '@/assets/hero-bg.jpg';
 import KaggleIcon from "../assets/kaggle.svg";
+import heroPortrait from '@/assets/Profisional Image.jpg';
  
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/iamnaveen1401', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/naveen1401/', label: 'LinkedIn' },
-  { icon: KaggleIcon, href: 'https://www.kaggle.com/iamnaveen1401', label: 'Kaggle' },
+  { icon: Github, href: 'https://github.com/mnaveen14', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/mnaveen14/', label: 'LinkedIn' },
+  { icon: KaggleIcon, href: 'https://www.kaggle.com/navin1401', label: 'Kaggle' },
 ];
 
 export default function Home() {
@@ -29,12 +29,12 @@ export default function Home() {
       />
 
       <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-8 w-full lg:w-1/2 order-2 lg:order-1"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -116,9 +116,22 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="hidden lg:block"
+            className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2"
           >
-            <Hero3D />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="relative w-[320px] h-[320px] md:w-[360px] md:h-[360px]"
+            >
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/70 via-indigo-500/40 to-purple-500/70 blur-3xl opacity-80" />
+              <div className="relative w-full h-full rounded-full p-3 bg-slate-900/60 border border-white/10 shadow-[0_0_70px_rgba(99,102,241,0.45)]">
+                <img
+                  src={heroPortrait}
+                  alt="Naveen M portrait"
+                  className="w-full h-full object-cover rounded-full ring-4 ring-primary/30 shadow-[0_0_55px_rgba(147,197,253,0.35)]"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

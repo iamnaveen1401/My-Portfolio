@@ -12,7 +12,6 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import CodingProfiles from "./pages/CodingProfiles";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -59,11 +58,7 @@ function AnimatedRoutes() {
             <Contact />
           </motion.div>
         } />
-        <Route path="/coding-profiles" element={
-          <motion.div {...pageTransition} transition={{ duration: 0.4 }}>
-            <CodingProfiles />
-          </motion.div>
-        } />
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

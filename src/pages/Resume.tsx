@@ -45,8 +45,8 @@ export default function Resume() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text">Resume</h1>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <a
-            href="/Naveen_M_Resume.pdf"
-            download="Naveen_M_Resume.pdf"
+            href="/Naveen_M-Data_Analyst_Resume.pdf"
+            download="Naveen_M-Data_Analyst_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import emailjs from 'emailjs-com'; // ✅ Added for email sending
+import KaggleIcon from "../assets/kaggle.svg";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -75,7 +76,7 @@ export default function Contact() {
             <div>
               <h2 className="text-2xl font-semibold text-foreground mb-4">Naveen</h2>
               <ul className="text-foreground/90 space-y-3 text-lg">
-                <li className="flex items-center gap-3"><Mail className="text-cyan-400 w-5 h-5" /> <a href="mailto:iamnaveen1401@gmail.com" className="hover:text-cyan-400 underline transition">iamnaveen1401@gmail.com</a></li>
+                <li className="flex items-center gap-3"><Mail className="text-cyan-400 w-5 h-5" /> <a href="mailto:mnaveen1401@gmail.com" className="hover:text-cyan-400 underline transition">mnaveen1401@gmail.com</a></li>
                 <li className="flex items-center gap-3"><Phone className="text-cyan-400 w-5 h-5" /> <a href="tel:+919344791056" className="hover:text-cyan-400 transition">+91 9344791056</a></li>
                 <li className="flex items-center gap-3"><MapPin className="text-cyan-400 w-5 h-5" /> Tamil Nadu, India</li>
               </ul>
@@ -83,14 +84,14 @@ export default function Contact() {
             </div>
 
             <div className="mt-6 flex gap-5 items-center">
-              <a href="https://www.linkedin.com/in/naveen1401/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_14px_3px_#0ff] hover:bg-cyan-500/20 transition-all shadow focus:outline-none" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/mnaveen14/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_14px_3px_#0ff] hover:bg-cyan-500/20 transition-all shadow focus:outline-none" aria-label="LinkedIn">
                 <Linkedin className="w-6 h-6 text-cyan-400" />
               </a>
-              <a href="https://github.com/iamnaveen1401" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_14px_3px_#a259ff] hover:bg-purple-600/20 transition-all shadow focus:outline-none" aria-label="GitHub">
+              <a href="https://github.com/mnaveen14" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_14px_3px_#a259ff] hover:bg-purple-600/20 transition-all shadow focus:outline-none" aria-label="GitHub">
                 <Github className="w-6 h-6 text-purple-400" />
               </a>
-              <a href="https://instagram.com/yourprofilename" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_14px_3px_#fd1d1d] hover:bg-pink-600/20 transition-all shadow focus:outline-none" aria-label="Instagram">
-                <Instagram className="w-6 h-6 text-pink-400" />
+              <a href="https://www.kaggle.com/navin1401" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_14px_3px_#fd1d1d] hover:bg-pink-600/20 transition-all shadow focus:outline-none" aria-label="Instagram">
+                <img src={KaggleIcon} alt="Kaggle" className="w-6 h-6" />
               </a>
             </div>
           </motion.div>

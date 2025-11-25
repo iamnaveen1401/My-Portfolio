@@ -7,9 +7,9 @@ import { ExternalLink } from 'lucide-react';
 const profiles = [
   {
     name: 'GitHub',
-    username: '@iamnaveen1401',
+    username: '@mnaveen14',
     stats: '100+ repositories',
-    link: 'https://github.com/iamnaveen1401',
+    link: 'https://github.com/mnaveen14',
     color: 'from-purple-500 to-pink-500',
   },
   {
